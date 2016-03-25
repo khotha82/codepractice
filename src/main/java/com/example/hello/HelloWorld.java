@@ -5,9 +5,10 @@ package com.example.hello;
  */
 public class HelloWorld {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        String version = System.getProperty("java.version");
-        System.out.println(version);
+		String version = System.getProperty("java.version");
+		System.out.println(version);
+        System.out.println("hlllo");
     }
 }
