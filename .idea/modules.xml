@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CodePractice.iml" filepath="$PROJECT_DIR$/.idea/modules/CodePractice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CodePractice_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CodePractice_main.iml" group="CodePractice" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CodePractice_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CodePractice_test.iml" group="CodePractice" />
     </modules>
   </component>
