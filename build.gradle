@@ -2,8 +2,10 @@ group 'CodePractice'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
+apply plugin: 'war'
+apply plugin : 'jetty'
 sourceCompatibility = 1.8
+
 
 repositories {
     mavenCentral()
@@ -11,30 +13,19 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    runtime group: 'javax.servlet', name: 'jstl', version: '1.2'
 }
 
-task helloWorld<<{
-
-        println "hello world to krishna"
-
+jettyRun{
+    httpPort=9090
+    contextPath='todo'
 }
 
-task startSession <<{
+jar {
 
-    chant()
-}
-def chant(){
+    manifest {
 
-    ant.echo(message : 'Repeat after me')
-}
-
-3.times{
-
-    task "yayGradle$it" <<{
-        println 'Gradle Rocks'
+        attributes 'Main-Class' : 'com.example.todo.TodoApp'
     }
 }
-
-yayGradle0.dependsOn startSession
-yayGradle2.dependsOn yayGradle1,yayGradle0
-task groupTherapy(dependsOn: yayGradle2)
