@@ -23,7 +23,7 @@ public class TodoServlet extends HttpServlet {
     private TodoRepository todoRepository = new InMemoryTodoRepository();
 
     public static final String FIND_ALL_SERVLET_PATH = "/all";
-    public static final String INDEX_PAGE = "/jsp/Todo-list.jsp";
+    public static final String INDEX_PAGE = "/jsp/todo-list.jsp";
     private TodoRepository TodoRepository = new InMemoryTodoRepository();
     AtomicLong id=new AtomicLong();
 

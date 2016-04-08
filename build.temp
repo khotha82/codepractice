@@ -1,0 +1,122 @@
+import com.example.tasks.ProjectVersion
+import com.example.tasks.ReleaseVersionTask
+
+group 'CodePractice'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin : 'jetty'
+apply plugin: 'groovy'
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+configurations{
+
+        cargo{
+            description='classpath for cargo ant tasks'
+            visible=false;
+        }
+}
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    runtime group: 'javax.servlet', name: 'jstl', version: '1.2'
+}
+
+jettyRun{
+    httpPort=9090
+    contextPath='todo'
+}
+
+jar {
+
+    manifest {
+
+        attributes 'Main-Class' : 'com.example.todo.TodoApp'
+    }
+}
+
+task printGradleProperty<<{
+    println " $someOtherProp"
+}
+
+task first<<{
+
+    println "first"
+}
+
+task second <<{
+
+    println "second"
+}
+
+first.finalizedBy second
+
+task printVersion(dependsOn :[second,first]){
+
+    doLast{
+        logger.quiet("$version")
+    }
+}
+
+
+// groovy code
+
+ext.versionFile=file('version.properties');
+task loadVersion{
+    project.version=readVersion()
+}
+
+ProjectVersion readVersion(){
+
+    Properties versionProps=new Properties();
+    versionFile.withInputStream{stream ->versionProps.load(stream)}
+    new com.example.tasks.ProjectVersion(versionProps.major.toInteger(),versionProps.minor.toInteger());
+}
+
+
+
+task makeReleaseVersion(type:ReleaseVersionTask){
+    release=version.release;
+    destFile=versionFile;
+}
+
+task createDistribution(type: Zip,dependsOn:makeReleaseVersion){
+    from war.outputs.files
+    from(sourceSets*.allSource){
+        into 'src'
+    }
+    from(rootDir){
+        include versionFile.name
+    }
+}
+
+task backupReleaseDistribution(type: Copy){
+    from createDistribution.outputs.files
+    into "$buildDir/backup"
+}
+task release(dependsOn :backupReleaseDistribution)<<{
+    logger.quiet('releaseing project')
+}
+
+tasks.addRule("Pattern: ping<ID>") { String taskName ->
+    if (taskName.startsWith("ping")) {
+        task(taskName) << {
+            println "Pinging: " + (taskName - 'ping')
+        }
+    }
+}
+
+gradle.taskGraph.whenReady { TaskExecutionGraph taskGraph ->
+        println(taskGraph)
+    if(taskGraph.hasTask(release)) {
+        println('hase release task')
+    }
+}

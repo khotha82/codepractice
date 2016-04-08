@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : to-do : web-1.0.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/web</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="web-1.0.war">
+      <element id="javaee-facet-resources" facet="web_main/web/Web Gradle : web-1.0.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/web/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="to-do-repository-1.0.jar">
+            <element id="module-output" name="repository_main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/repository/build/resources/main" />
+          </element>
+          <element id="archive" name="to-do-model-1.0.jar">
+            <element id="module-output" name="model_main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/model/build/resources/main" />
+          </element>
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.1.2/3375e43c620df4f1114959400ff9bb90d12a2feb/jstl-1.1.2.jar" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/web/exploded/web-1.0.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

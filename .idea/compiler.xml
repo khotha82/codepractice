@@ -19,8 +19,24 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="buildSrc_main" target="1.8" />
+      <module name="buildSrc_test" target="1.8" />
       <module name="CodePractice_main" target="1.8" />
       <module name="CodePractice_test" target="1.8" />
+      <module name="model_main" target="1.8" />
+      <module name="model_test" target="1.8" />
+      <module name="repository_main" target="1.8" />
+      <module name="repository_test" target="1.8" />
+      <module name="todo-model_main" target="1.8" />
+      <module name="todo-model_test" target="1.8" />
+      <module name="todo-repository_main" target="1.8" />
+      <module name="todo-repository_test" target="1.8" />
+      <module name="todo-web_main" target="1.8" />
+      <module name="todo-web_test" target="1.8" />
+      <module name="todomodel_main" target="1.8" />
+      <module name="todomodel_test" target="1.8" />
+      <module name="web_main" target="1.8" />
+      <module name="web_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

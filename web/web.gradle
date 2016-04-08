@@ -1,0 +1,25 @@
+group 'to-do'
+version '1.0'
+
+
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    runtime 'javax.servlet:jstl:1.1.2'
+    compile project(':repository')
+}
+
+
+task hello() <<{
+
+    println "hello from web project"
+}

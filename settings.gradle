@@ -1,2 +1,9 @@
 rootProject.name = 'CodePractice'
+include 'model', 'repository' ,'web'
 
+rootProject.name='todo'
+
+rootProject.children.each {
+
+    it.buildFileName=it.name+'.gradle'
+}

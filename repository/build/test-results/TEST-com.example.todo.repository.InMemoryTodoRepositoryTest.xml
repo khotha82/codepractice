@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.todo.repository.InMemoryTodoRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-04-07T15:18:51" hostname="NY02395FD56" time="2.644">
+  <properties/>
+  <testcase name="insertTodoItem" classname="com.example.todo.repository.InMemoryTodoRepositoryTest" time="2.644"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
